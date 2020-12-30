@@ -7,7 +7,7 @@ import time
 name2id={}
 id2name={}
 id=0
-poppler_bin_path="D:/projects/others/poppler-20.12.1/Library/bin"
+poppler_bin_path="./poppler-20.12.1/Library/bin"
 os.popen("cd "+poppler_bin_path)
 pdf_file_path=Path("./")
 for p in pdf_file_path.iterdir():
