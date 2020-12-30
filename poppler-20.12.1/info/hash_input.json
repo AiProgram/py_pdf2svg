@@ -1,0 +1,15 @@
+{
+  "libtiff": "4.1.0",
+  "zlib": "1.2",
+  "channel_targets": "conda-forge main",
+  "curl": "7",
+  "libpng": "1.6",
+  "cxx_compiler": "vs2017",
+  "target_platform": "win-64",
+  "cairo": "1.16",
+  "freetype": "2",
+  "glib": "2.66",
+  "jpeg": "9",
+  "openjpeg": "2.3",
+  "c_compiler": "vs2017"
+}
