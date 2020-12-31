@@ -3,12 +3,13 @@ from pathlib import PurePosixPath
 from pathlib import Path
 import os
 import time
+import subprocess
 
 name2id={}
 id2name={}
 id=0
 poppler_bin_path="./poppler-20.12.1/Library/bin"
-os.popen("cd "+poppler_bin_path)
+subprocess.Popen("cd "+poppler_bin_path, stdout=subprocess.PIPE, shell=True)
 pdf_file_path=Path("./")
 for p in pdf_file_path.iterdir():
     if p.is_file() and p.suffix==".pdf":
@@ -22,8 +23,7 @@ for id in id2name:
     p.rename(new_name)
     p=Path(new_name)
     new_p=Path(out_name)
-    out=os.popen(r"pdftocairo -svg "+p.resolve().name+" "+new_p.resolve().name)
-    time.sleep(0.3)
+    subprocess.Popen(r"pdftocairo -svg "+p.resolve().name+" "+new_p.resolve().name, stdout=subprocess.PIPE, shell=True).wait()
 for id in id2name:
     p=Path("##"+str(id)+".pdf")
     p.rename(id2name[id]+".pdf")
